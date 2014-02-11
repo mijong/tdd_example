@@ -1,11 +1,8 @@
-#include <stdio.h>
-#include <string.h>
 #include "saveToResult.h"
-
-
 int main(void)
 {
 
-	return saveToResult();
+	return saveToResult();// if poepn failed, it will be return -1.
+							 
 
 }

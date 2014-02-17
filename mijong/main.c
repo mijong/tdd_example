@@ -2,6 +2,6 @@
 
 void main(void)
 {
-    saveFileLog();
+    save_FileLog();
     printf("%s\n",log[0].filesystem);
 }

@@ -5,7 +5,7 @@
 #define LINE_SIZE 100
 
 
-struct fileLog
+struct file_Log
 {
     char filesystem[STR_SIZE];
     char blocks[STR_SIZE];
@@ -16,34 +16,34 @@ struct fileLog
     char on[STR_SIZE];
 };
 
-struct fileLog log[LINE_SIZE];
+struct file_Log log[LINE_SIZE];
 
-void saveFileLog(void)
+void save_FileLog(void)
 {
 
     char *ptr;//pointer of strtok
-    char stringBuffer[BUFF_SIZE];
+    char string_Buffer[BUFF_SIZE];
     FILE *fp;// file pointer 
-    int lineNumber=0;
+    int line_Number=0;
     fp=popen("df -B 1","r");
 
 
-	while(fgets(stringBuffer,BUFF_SIZE,fp))
+	while(fgets(string_Buffer,BUFF_SIZE,fp))
 	{
-        ptr=strtok(stringBuffer," ");
-        strcpy(log[lineNumber].filesystem,ptr);	
+        ptr=strtok(string_Buffer," ");
+        strcpy(log[line_Number].filesystem,ptr);	
         ptr=strtok(NULL," ");
-        strcpy(log[lineNumber].blocks,ptr);
+        strcpy(log[line_Number].blocks,ptr);
         ptr=strtok(NULL," ");
-        strcpy(log[lineNumber].used,ptr);
+        strcpy(log[line_Number].used,ptr);
         ptr=strtok(NULL," ");
-        strcpy(log[lineNumber].available,ptr);
+        strcpy(log[line_Number].available,ptr);
         ptr=strtok(NULL," ");
-        strcpy(log[lineNumber].use,ptr);
+        strcpy(log[line_Number].use,ptr);
         ptr=strtok(NULL," ");
-        strcpy(log[lineNumber].mounted,ptr);
+        strcpy(log[line_Number].mounted,ptr);
         ptr=strtok(NULL," ");
-        lineNumber++;
+        line_Number++;
 	}
 
     pclose(fp);

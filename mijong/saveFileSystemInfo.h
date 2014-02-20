@@ -48,10 +48,3 @@ void save_FileLog(void)
 
     pclose(fp);
 }
-
-
-
-
-
-
-
